@@ -12,14 +12,30 @@ import com.nit.CRUD_Opration.domain.Product;
 public class ProductServiceImpl implements ProductService {
 	@Autowired
 	ProductDAOImpl productDAOImpl;
-	
-//	public void setProductDAOImpl(ProductDAOImpl productDAOImpl) {
-//		this.productDAOImpl = productDAOImpl;
-//	}
 
-	@Override
 	public List<Product> allProduct() {
 		return productDAOImpl.listAll();
 	}
 
+	public String saveProduct(Product product) {
+		//Product product = new Product();
+		// product.setId(7);
+		product.setName("Samasung Mobile");
+		product.setPrice(15000);
+		product.setQuantity(10);
+		product.setDescription("This is Samsung product");
+		product.setPhoto("samsung.jpg");
+		product.setAvailable(true);
+
+		return productDAOImpl.insertProduct(product);
+	}
+
+	public String removeProductById(int id) {
+		return productDAOImpl.deleteProductById(id);
+	}
+
+	public Product dispalyProductById(int id) {
+		Product byID = productDAOImpl.getByID(id);
+		return byID;
+	}
 }

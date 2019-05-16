@@ -8,24 +8,25 @@ import javax.persistence.Id;
 
 @Entity
 public class Product {
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="P_ID")
-	private long id;
-	@Column(name="P_NAME")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "P_ID", updatable = false, nullable = false)
+	private int id;
+	@Column(name = "P_NAME")
 	private String name;
-	@Column(name="P_PRICE")
+	@Column(name = "P_PRICE")
 	private double price;
-	@Column(name="P_QUAN")
+	@Column(name = "P_QUAN")
 	private int quantity;
-	@Column(name="P_DESC")
+	@Column(name = "P_DESC")
 	private String description;
-	@Column(name="P_PHOTO")
+	@Column(name = "P_PHOTO")
 	private String photo;
-	@Column(name="P_AVAILABLE")
+	@Column(name = "P_AVAILABLE")
 	private boolean isAvailable;
 
-	public Product(long id, String name, double price, int quantity, String description, String photo,
+	public Product(int id, String name, double price, int quantity, String description, String photo,
 			boolean isAvailable) {
 		super();
 		this.id = id;
@@ -38,15 +39,15 @@ public class Product {
 	}
 
 	public Product() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	// setter and getter
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -104,5 +105,4 @@ public class Product {
 		return "Product [id=" + id + ", name=" + name + ", price=" + price + ", quantity=" + quantity + ", description="
 				+ description + ", photo=" + photo + ", isAvailable=" + isAvailable + "]";
 	}
-
 }

@@ -6,16 +6,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import com.nit.CRUD_Opration.config.AppConfig;
 import com.nit.CRUD_Opration.service.ProductService;
 
-/**
- * Hello world!
- *
- */
-
 
 public class App 
 {
-	
-
     @SuppressWarnings("resource")
 	public static void main( String[] args )
     {
@@ -25,6 +18,11 @@ public class App
         context = new AnnotationConfigApplicationContext(AppConfig.class);
         pService = context.getBean("productService",ProductService.class);
         System.out.println("ALL Product::"+pService.allProduct());
+        
+       // Product product = new Product();
+       // System.out.println("Save Product::"+pService.saveProduct(product));
+       // System.out.println(pService.removeProductById(4));
+       // System.out.println("Your Product::"+pService.dispalyProductById(3));
         
         
     }
